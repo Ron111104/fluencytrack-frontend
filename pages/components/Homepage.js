@@ -16,13 +16,13 @@ const Homepage = () => {
 
           {/* Content within overlay */}
           <div className="relative z-10 text-blue-900 space-y-6">
-            <h1 className="text-3xl lg:text-5xl font-bold">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               Speech therapy - Connect. Evaluate. Thrive.
             </h1>
-            <h2 className="text-xl lg:text-2xl font-semibold text-blue-700">
+            <h2 className="text-xl sm:text-2xl lg:text-2xl font-semibold text-blue-700">
               Transforming Lives
             </h2>
-            <p className="text-base lg:text-lg text-blue-800">
+            <p className="text-base sm:text-lg lg:text-lg text-blue-800">
               Bettering your speech, one step at a time
             </p>
             <p className="text-sm lg:text-base text-blue-800">
@@ -32,7 +32,7 @@ const Homepage = () => {
             {/* Book Appointment Button */}
             <Link href="/appointment">
               <motion.div
-                className="mt-6 absolute left-0"  // Stick to the left
+                className="mt-6 lg:absolute lg:left-0"  // Stick to the left
                 initial={{ x: -400, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}  // Re-trigger on scroll
                 transition={{ duration: 0.8 }}
@@ -52,7 +52,7 @@ const Homepage = () => {
         </div>
 
         {/* Right Side: Image (next to the text) */}
-        <div className="lg:w-1/2 w-full flex justify-center items-center mt-10 lg:mt-0">
+        <div className="hidden lg:flex lg:w-1/2 w-full justify-center items-center mt-10 lg:mt-0">
           <motion.div
             initial={{ x: 200, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}  // Re-trigger on scroll
