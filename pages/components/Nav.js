@@ -33,7 +33,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-20 flex items-center justify-between p-2 bg-white ${montserrat.className} ${isScrolled ? 'shadow-lg' : ''}`}>
+    <div className={`absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-2 bg-white ${montserrat.className} ${isScrolled ? 'shadow-lg' : ''}`}>
       <span className='flex gap-4 items-center'>
         <Link href="/">
         <Image src={Logo} alt='Logo' width={50} height={50} />
@@ -49,7 +49,7 @@ const Nav = () => {
         <a onClick={() => handleScroll('about')} className='text-dark p-1 rounded-md cursor-pointer hover:bg-[#3c5fff85]'>
           About
         </a>
-        <a onClick={() => handleScroll('contact')} className='text-dark p-1 rounded-md cursor-pointer hover:bg-[#3c5fff85]'>
+        <a onClick={() => handleScroll('appointment')} className='text-dark p-1 rounded-md cursor-pointer hover:bg-[#3c5fff85]'>
           Contact Us
         </a>
         <a onClick={() => handleScroll('services')} className='text-dark p-1 rounded-md cursor-pointer hover:bg-[#3c5fff85]'>
@@ -112,7 +112,7 @@ const Nav = () => {
                 About
               </motion.a>
               <motion.a
-                onClick={() => handleScroll('contact')}
+                onClick={() => handleScroll('appointment')}
                 className='text-dark rounded-md cursor-pointer hover:bg-[#3c5fff85]'
               >
                 Contact Us
