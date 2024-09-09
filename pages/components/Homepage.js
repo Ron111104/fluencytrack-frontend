@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Homepage = () => {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-lightPurple mt-8">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-lightPurple mt-3 rounded-3xl">
       {/* Main container holding text and image */}
       <div className="lg:flex lg:flex-row lg:w-full w-full justify-center relative px-8 lg:px-20 py-16 lg:py-24 my-20">
         {/* Left Side: Text Content */}
@@ -22,10 +22,10 @@ const Homepage = () => {
             <h2 className="text-xl sm:text-2xl lg:text-2xl font-semibold text-blue-700">
               Transforming Lives
             </h2>
-            <p className="text-base sm:text-lg lg:text-lg text-blue-800">
+            <p className="text-base sm:text-lg lg:text-lg text-black">
               Bettering your speech, one step at a time
             </p>
-            <p className="text-sm lg:text-base text-blue-800">
+            <p className="text-sm lg:text-base text-black">
               A platform facilitating seamless connections, improving therapy outcomes, and ensuring quality care through effective communication and evaluation.
             </p>
 
