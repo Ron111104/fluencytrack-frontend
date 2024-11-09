@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import homeImage from '../../public/home.png'; 
+import homeImage from '@/public/home.png'; 
 import Link from 'next/link';
 
 const Homepage = () => {

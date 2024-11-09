@@ -1,11 +1,12 @@
-import Nav from "@/pages/components/Nav";
-import Homepage from "@/pages/components/Homepage";
-import About from "@/pages/components/About";
-import Services from "@/pages/components/Services";
-import Appointment from "@/pages/components/Appointment";
+import Nav from "@/components/Nav";
+import Homepage from "@/components/Homepage";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Appointment from "@/components/Appointment";
+import withAuthentication from "@/firebase/withAuthenticator";
 
 
-  export default function Home() {
+function Home() {
     return (
       <>
       <Nav/>
@@ -24,3 +25,5 @@ import Appointment from "@/pages/components/Appointment";
       </>
     );
   }
+
+  export default withAuthentication(Home);

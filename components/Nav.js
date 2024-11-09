@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Logo from '../../public/logo.png';
-import ArrowDown from '../../public/Arrow.svg';
+import Logo from '@/public/logo.png';
+import ArrowDown from '@/public/Arrow.svg';
 import { Montserrat } from 'next/font/google';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/firebaseConfig';
 
 const montserrat = Montserrat({ weight: '400', subsets: ['latin'] });
 
@@ -13,6 +15,15 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check auth state and update isLoggedIn
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+    return unsubscribe;
+  }, []);
 
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -27,19 +38,27 @@ const Nav = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   return (
     <div className={`absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-2 bg-white ${montserrat.className} ${isScrolled ? 'shadow-lg' : ''}`}>
       <span className='flex gap-4 items-center'>
         <Link href="/">
-        <Image src={Logo} alt='Logo' width={50} height={50} />
+          <Image src={Logo} alt='Logo' width={50} height={50} />
         </Link>
         <Link href="/">
-        <p className='text-dark font-bold text-2xl md:text-2xl'>CareSync</p>
+          <p className='text-dark font-bold text-2xl md:text-2xl'>CareSync</p>
         </Link>
       </span>
       <span className='hidden md:flex gap-4 items-center'>
@@ -71,16 +90,20 @@ const Nav = () => {
           )}
         </div>
       </span>
-      <span className='hidden md:flex'>
-        <button className='bg-[#3c5fff85] text-black font-medium p-2 rounded-md px-4 '>Login/Register</button>
-      </span>
+      {isLoggedIn ? (
+        <button onClick={handleLogout} className='bg-[#3c5fff85] text-black font-medium p-2 rounded-md px-4'>
+          Logout
+        </button>
+      ) : (
+        <Link href="/login">
+          <button className='bg-[#3c5fff85] text-black font-medium p-2 rounded-md px-4'>
+            Login/Register
+          </button>
+        </Link>
+      )}
       <div className='md:hidden flex items-center'>
         <button onClick={() => setIsOpen(!isOpen)} className={`text-dark ${isOpen ? 'z-50' : ''}`}>
-          {isOpen ? (
-            <FaTimes className='w-6 h-6' />
-          ) : (
-            <FaBars className='w-6 h-6' />
-          )}
+          {isOpen ? <FaTimes className='w-6 h-6' /> : <FaBars className='w-6 h-6' />}
         </button>
       </div>
 
@@ -123,11 +146,17 @@ const Nav = () => {
               >
                 Services
               </motion.a>
-              <motion.a
-                className='bg-[#3c5fff85] w-[100%] flex items-center justify-center text-black font-medium p-2 rounded-md px-4 cursor-pointer'
-              >
-                Login/Register
-              </motion.a>
+              {isLoggedIn ? (
+                <button onClick={handleLogout} className='bg-[#3c5fff85] text-black font-medium p-2 rounded-md px-4'>
+                  Logout
+                </button>
+              ) : (
+                <Link href="/login">
+                  <button className='bg-[#3c5fff85] text-black font-medium p-2 rounded-md px-4'>
+                    Login/Register
+                  </button>
+                </Link>
+              )}
             </motion.div>
           </motion.div>
         )}
