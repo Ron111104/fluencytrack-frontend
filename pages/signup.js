@@ -71,12 +71,13 @@ export default function SignUp() {
     <div
       className="flex items-center justify-center min-h-screen"
       style={{
-        backgroundImage: `url(${isMobile ? '/assets/bg_laptop.png' : '/assets/bg_laptop.png'})`,
+        // backgroundImage: `url(${isMobile ? '/assets/home.png' : '/assets/home.png'})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundColor : 'lightblue',
       }}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full transition-opacity duration-500 opacity-100">
+      <div className="bg-purple-900 p-8 rounded-lg shadow-lg max-w-md w-full transition-opacity duration-500 opacity-100">
         <h2 className="text-3xl font-bold text-center text-gray-800">Create an Account</h2>
         <form onSubmit={handleSignUp} className="mt-6">
           <div className="mb-4">
@@ -157,7 +158,7 @@ export default function SignUp() {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
-          <Link href="/login" className="font-medium text-green-600 hover:underline">
+          <Link href="/login" className="font-medium text-purple-700 hover:underline">
             Log In
           </Link>
         </p>

@@ -43,46 +43,38 @@ const About = () => {
           {/* Left Side Text */}
           <div className="space-y-6">
             <h1 className="text-purple-700 text-3xl lg:text-4xl font-bold">
-              At CareSync
+              Understanding Parkinson's Disease
             </h1>
-            <h2 className="text-blue-900 text-2xl lg:text-3xl font-bold">
-              We Provide Premier Patient Care
-            </h2>
-            <p className="text-black text-base lg:text-lg">
-              Embrace a world where your health and well-being are our top priority. At CareSync, we are committed to offering you personalized, compassionate care, ensuring you feel supported every step of the way.
-            </p>
 
-            {/* Features with icons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mt-6">
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Seamless Coordination for all stages of treatment
-              </p>
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Advanced tools and technology
-              </p>
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Personalized therapy plan
-              </p>
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Patient-centered care
-              </p>
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Warm and welcoming atmosphere
-              </p>
-              <p className="flex items-center text-gray-800">
-                <FaCheckCircle className="text-green-500 mr-2" />
-                Trusted experts
-              </p>
+            {/* Bullet Points for Background */}
+            <div className="text-black text-base lg:text-lg space-y-4">
+            <p className="font-semibold">Background:</p>
+<ul className="space-y-2 list-disc list-inside text-gray-800">
+  <li>
+    Parkinson’s disease is a neurodegenerative disorder caused by the loss of dopamine-producing cells.
+  </li>
+  <li>
+    It primarily affects movement and includes symptoms like slowness, lack of facial expression, and voice changes.
+  </li>
+</ul>
+
+              {/* Bullet Points for Why Use Speech Analysis */}
+              <p className="font-semibold mt-4">Why Use Speech Analysis?</p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-gray-800">
+                  <FaCheckCircle className="text-green-500 mr-2" />
+                  Speech impairment is an early indicator of Parkinson's, often manifesting as a hoarse voice or tremors.
+                </li>
+                <li className="flex items-center text-gray-800">
+                  <FaCheckCircle className="text-green-500 mr-2" />
+                  Voice analysis is non-invasive, affordable, and requires only simple audio recordings for assessment.
+                </li>
+              </ul>
             </div>
 
             {/* Know More Button */}
             <motion.div
-              className="mt-8 inline-block"
+              className="mt-4 inline-block"
               initial={{ x: 0, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -90,10 +82,10 @@ const About = () => {
             >
               <div
                 onClick={scrollToServices}
-                className="flex items-center space-x-4 bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg cursor-pointer"
+                className="flex items-center space-x-4 bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg cursor-pointer"
               >
                 <span className="text-lg font-bold">Explore our Services</span>
-                <div className="bg-white text-blue-700 p-3 rounded-full">
+                <div className="bg-white text-blue-700 p-2 rounded-full">
                   <FaArrowRight />
                 </div>
               </div>

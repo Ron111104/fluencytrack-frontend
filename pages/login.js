@@ -50,13 +50,14 @@ export default function Login() {
     <div
       className="flex items-center justify-center min-h-screen"
       style={{
-        backgroundImage: `url(${isMobile ? '/bg_laptop.png' : '/bg_laptop.png'})`,
+        // backgroundImage: `url(${isMobile ? '/home.png' : '/home.png'})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundColor : 'lightblue',
       }}
     >
-      <div className="bg-white p-10 rounded-lg shadow-xl max-w-md w-full transition-opacity duration-500 opacity-100">
-        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Log In to FPLMate</h2>
+      <div className="bg-purple-900 p-10 rounded-lg shadow-xl max-w-md w-full transition-opacity duration-500 opacity-100">
+        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Log In to NeuroEcho</h2>
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -116,7 +117,7 @@ export default function Login() {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link href="/signup" className="font-medium text-green-600 hover:underline">
+          <Link href="/signup" className="font-medium text-purple-700 hover:underline">
             Sign Up
           </Link>
         </p>
