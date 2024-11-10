@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
+import { useRouter } from 'next/router';
 
 const montserrat = Montserrat({ weight: '400', subsets: ['latin'] });
 
@@ -16,8 +17,8 @@ const Nav = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
-  // Check auth state and update isLoggedIn
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
@@ -26,9 +27,13 @@ const Nav = () => {
   }, []);
 
   const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (router.pathname !== '/') {
+      router.push(`/#${id}`);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
     setIsDropdownOpen(false);
@@ -84,8 +89,8 @@ const Nav = () => {
               className='absolute top-full mt-2 bg-[#133efa85] rounded-md shadow-lg py-2 z-10'
             >
               <Link href="/SpeechAnalysis" className="block px-4 py-2 text-dark cursor-pointer">
-  Therapy Session
-</Link>
+                Therapy Session
+              </Link>
               <a onClick={() => handleScroll('appointment')} className='block px-4 py-2 text-dark cursor-pointer'>
                 Book Appointment
               </a>
