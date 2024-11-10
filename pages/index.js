@@ -5,25 +5,24 @@ import Services from "@/components/Services";
 import Appointment from "@/components/Appointment";
 import withAuthentication from "@/firebase/withAuthenticator";
 
-
 function Home() {
-    return (
-      <>
-      <Nav/>
+  return (
+    <>
+      <Nav />
       <section id="home">
-        <Homepage/>
+        <Homepage />
       </section>
       <section id="about">
-        <About/>
+        <About />
       </section>
       <section id="services">
-        <Services/>
+        <Services />
       </section>
       <section id="appointment">
-        <Appointment/>
+        <Appointment />
       </section>
-      </>
-    );
-  }
+    </>
+  );
+}
 
-  export default withAuthentication(Home);
+export default withAuthentication(Home);
