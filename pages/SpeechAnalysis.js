@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 // import { FaMicrophone, FaStopCircle, FaDownload } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Nav from '@/components/Nav';
+import withAuthentication from "@/firebase/withAuthenticator";
 
 // Dynamically import the MediaRecorder component without SSR
 // const MediaRecorder = dynamic(() => import('react-media-recorder').then((mod) => mod.MediaRecorder), { 
@@ -197,4 +198,4 @@ const SpeechAnalysis = ({ user }) => {
   );
 };
 
-export default SpeechAnalysis;
+export default withAuthentication(SpeechAnalysis);
