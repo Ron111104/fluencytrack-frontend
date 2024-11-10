@@ -83,6 +83,9 @@ const Nav = () => {
               exit={{ opacity: 0, y: -10 }}
               className='absolute top-full mt-2 bg-[#133efa85] rounded-md shadow-lg py-2 z-10'
             >
+              <Link href="/SpeechAnalysis" className="block px-4 py-2 text-dark cursor-pointer">
+  Therapy Session
+</Link>
               <a onClick={() => handleScroll('appointment')} className='block px-4 py-2 text-dark cursor-pointer'>
                 Book Appointment
               </a>

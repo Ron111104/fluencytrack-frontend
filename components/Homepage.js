@@ -17,10 +17,10 @@ const Homepage = () => {
           {/* Content within overlay */}
           <div className="relative z-10 text-blue-900 space-y-6">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-              Speech therapy - Connect. Evaluate. Thrive.
+              Speech Analysis for Parkinson's Detection
             </h1>
             <h2 className="text-xl sm:text-2xl lg:text-2xl font-semibold text-blue-700">
-              Transforming Lives
+              Empowering Speech Therapy for Clinical Services
             </h2>
             <p className="text-base sm:text-lg lg:text-lg text-black">
               Bettering your speech, one step at a time
