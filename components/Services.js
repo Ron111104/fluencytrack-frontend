@@ -27,6 +27,12 @@ const Services = () => {
       link: '/reports',
     },
     {
+      id: 'analysis',
+      title: 'Speech Therapy',
+      description: 'Know your speech detoriation status',
+      link: '/SpeechAnalysis',
+    },
+    {
       id: 'more-services',
       title: 'More Services',
       description: 'Explore additional offerings',
