@@ -25,4 +25,4 @@ function Home() {
   );
 }
 
-export default withAuthentication(Home);
+  export default Home;
