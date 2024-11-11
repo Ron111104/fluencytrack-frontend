@@ -1,6 +1,7 @@
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const About = () => {
   const [therapistCount, setTherapistCount] = useState(0);
@@ -27,14 +28,6 @@ const About = () => {
     };
   }, []);
 
-  // Function to scroll down to services section
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="bg-white lg:mt-16 lg:py-12">
       <div className="bg-blue-100 py-12 px-6 lg:px-20 lg:mx-10 rounded-3xl">
@@ -48,15 +41,15 @@ const About = () => {
 
             {/* Bullet Points for Background */}
             <div className="text-black text-base lg:text-lg space-y-4">
-            <p className="font-semibold">Background:</p>
-<ul className="space-y-2 list-disc list-inside text-gray-800">
-  <li>
-    Parkinson’s disease is a neurodegenerative disorder caused by the loss of dopamine-producing cells.
-  </li>
-  <li>
-    It primarily affects movement and includes symptoms like slowness, lack of facial expression, and voice changes.
-  </li>
-</ul>
+              <p className="font-semibold">Background:</p>
+              <ul className="space-y-2 list-disc list-inside text-gray-800">
+                <li>
+                  Parkinson’s disease is a neurodegenerative disorder caused by the loss of dopamine-producing cells.
+                </li>
+                <li>
+                  It primarily affects movement and includes symptoms like slowness, lack of facial expression, and voice changes.
+                </li>
+              </ul>
 
               {/* Bullet Points for Why Use Speech Analysis */}
               <p className="font-semibold mt-4">Why Use Speech Analysis?</p>
@@ -72,7 +65,7 @@ const About = () => {
               </ul>
             </div>
 
-            {/* Know More Button */}
+            {/* Know More Button with Link */}
             <motion.div
               className="mt-4 inline-block"
               initial={{ x: 0, opacity: 0 }}
@@ -80,15 +73,14 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              <div
-                onClick={scrollToServices}
-                className="flex items-center space-x-4 bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg cursor-pointer"
-              >
-                <span className="text-lg font-bold">Explore our Services</span>
-                <div className="bg-white text-blue-700 p-2 rounded-full">
-                  <FaArrowRight />
+              <Link href="/knowmore">
+                <div className="flex items-center space-x-4 bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg cursor-pointer">
+                  <span className="text-lg font-bold">Know More</span>
+                  <div className="bg-white text-blue-700 p-2 rounded-full">
+                    <FaArrowRight />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           </div>
 
