@@ -57,7 +57,7 @@ export default function Login() {
       }}
     >
       <div className="bg-purple-900 p-10 rounded-lg shadow-xl max-w-md w-full transition-opacity duration-500 opacity-100">
-        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Log In to NeuroEcho</h2>
+        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Log In to CareSync</h2>
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
